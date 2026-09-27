@@ -6310,121 +6310,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:GND"
-			(power global)
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "#PWR"
-				(at 0 -6.35 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "GND"
-				(at 0 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "GND_0_1"
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "GND_1_1"
-				(pin power_in line
-					(at 0 0 270)
-					(length 0)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 	)
 	(text "Display"
 		(exclude_from_sim no)
@@ -6649,12 +6534,6 @@
 		(uuid "20613963-afde-4e08-b650-ba8c40a89eae")
 	)
 	(junction
-		(at 237.49 76.2)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "26162f63-2e05-41c5-ab38-b12d79a86cb1")
-	)
-	(junction
 		(at 220.98 45.72)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6797,6 +6676,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5e602ffe-33d5-4d4d-8a5e-a172d784a334")
+	)
+	(junction
+		(at 237.49 76.2)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "60e64913-ddf1-4c79-b2c9-773dbe6623c2")
 	)
 	(junction
 		(at 60.96 99.06)
@@ -7057,12 +6942,6 @@
 		(uuid "b61ecefd-d602-470e-bfae-8c35dd26cdba")
 	)
 	(junction
-		(at 237.49 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b6bef818-c112-47e9-b17b-8f5f32a6f69c")
-	)
-	(junction
 		(at 246.38 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7211,6 +7090,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f5f67b45-b58e-456d-bff5-c0319e3e1ab5")
+	)
+	(junction
+		(at 237.49 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f6a97d2b-ed70-4780-9cb3-1fd89487a428")
 	)
 	(junction
 		(at 29.21 116.84)
@@ -7532,7 +7417,7 @@
 	)
 	(wire
 		(pts
-			(xy 237.49 73.66) (xy 237.49 109.22)
+			(xy 237.49 73.66) (xy 237.49 76.2)
 		)
 		(stroke
 			(width 0)
@@ -8502,6 +8387,16 @@
 	)
 	(wire
 		(pts
+			(xy 237.49 76.2) (xy 237.49 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68588968-b838-42f4-a357-b520d6c3bb95")
+	)
+	(wire
+		(pts
 			(xy 48.26 57.15) (xy 48.26 58.42)
 		)
 		(stroke
@@ -9109,6 +9004,16 @@
 			(type default)
 		)
 		(uuid "990702ff-4b17-4843-88c7-55996a5ae1f6")
+	)
+	(wire
+		(pts
+			(xy 237.49 82.55) (xy 237.49 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9977f198-8dca-445b-84a3-586aff1c7d1f")
 	)
 	(wire
 		(pts
@@ -10800,7 +10705,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "02361349-99d3-41ea-b2e8-c57a3c817b30")
-		(property "Reference" "C2"
+		(property "Reference" "SC2"
 			(at 229.87 40.132 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10822,7 +10727,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 232.1052 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -10864,7 +10769,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C2")
+					(reference "SC2")
 					(unit 1)
 				)
 			)
@@ -11108,6 +11013,85 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 254 92.71 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "05010cb8-3d22-4e88-b127-63f936168411")
+		(property "Reference" "DC6"
+			(at 256.286 91.44 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "C"
+			(at 256.286 93.98 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 257.81 91.7448 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 254 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5c12572f-7a94-40fe-a408-a2261499be0c")
+		)
+		(pin "2"
+			(uuid "10906b68-ef2f-49dc-90c7-85e3e82c70c3")
+		)
+		(instances
+			(project "esp32-wavplayer-final"
+				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
+					(reference "DC6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:Earth")
 		(at 116.84 49.53 0)
 		(unit 1)
@@ -11197,7 +11181,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "087d8735-0ffd-4cf8-bd58-8ff4d1a5d743")
-		(property "Reference" "C11"
+		(property "Reference" "DC1"
 			(at 271.272 74.168 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11219,7 +11203,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 274.0152 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -11261,7 +11245,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C11")
+					(reference "DC1")
 					(unit 1)
 				)
 			)
@@ -11370,7 +11354,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0d618763-97a2-4888-b2a4-5074b6017152")
-		(property "Reference" "U2"
+		(property "Reference" "BATPROT1"
 			(at 179.578 25.908 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11444,7 +11428,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "U2")
+					(reference "BATPROT1")
 					(unit 1)
 				)
 			)
@@ -11461,7 +11445,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0f07028d-8b55-468f-93d7-51590e908f78")
-		(property "Reference" "C29"
+		(property "Reference" "OC2"
 			(at 76.962 100.838 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11483,7 +11467,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 79.7052 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -11525,7 +11509,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C29")
+					(reference "OC2")
 					(unit 1)
 				)
 			)
@@ -11541,26 +11525,27 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "1147db33-da50-49de-9b4b-c6112483cc2a")
-		(property "Reference" "F3"
-			(at 97.79 113.03 0)
+		(property "Reference" "AVR1"
+			(at 99.314 110.49 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Value" "ME6211C33M5"
-			(at 100.33 113.03 0)
+			(at 101.854 105.918 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
@@ -11614,7 +11599,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "F3")
+					(reference "AVR1")
 					(unit 1)
 				)
 			)
@@ -11631,7 +11616,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "118f35d7-5960-4ca4-b59a-36842a648dae")
-		(property "Reference" "R17"
+		(property "Reference" "BR1"
 			(at 114.3 172.974 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11653,7 +11638,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 111.252 173.99 90)
 			(hide yes)
 			(show_name no)
@@ -11695,7 +11680,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R17")
+					(reference "BR1")
 					(unit 1)
 				)
 			)
@@ -11875,7 +11860,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "14e9b504-1b0b-4a99-9347-af683dd351ed")
-		(property "Reference" "C19"
+		(property "Reference" "AC5"
 			(at 169.672 121.158 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11897,7 +11882,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 175.26 118.4148 0)
 			(hide yes)
 			(show_name no)
@@ -11939,7 +11924,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C19")
+					(reference "AC5")
 					(unit 1)
 				)
 			)
@@ -12190,7 +12175,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "1bc87666-33e3-4359-8689-d0d6bb8600f3")
-		(property "Reference" "R23"
+		(property "Reference" "PR5"
 			(at 102.362 27.94 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12212,7 +12197,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 102.362 31.75 90)
 			(hide yes)
 			(show_name no)
@@ -12254,7 +12239,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R23")
+					(reference "PR5")
 					(unit 1)
 				)
 			)
@@ -12285,6 +12270,7 @@
 		)
 		(property "Value" "Earth"
 			(at 46.99 194.31 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12780,7 +12766,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "256c9467-67e5-4f39-ba0d-62003a82c0fe")
-		(property "Reference" "CO1"
+		(property "Reference" "CYOC1"
 			(at 74.93 90.424 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12848,7 +12834,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "CO1")
+					(reference "CYOC1")
 					(unit 1)
 				)
 			)
@@ -12944,7 +12930,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "29ee2de6-a0c9-4cca-b335-4e5fb74a7327")
-		(property "Reference" "R3"
+		(property "Reference" "SR3"
 			(at 226.06 17.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12966,7 +12952,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 223.012 19.05 90)
 			(hide yes)
 			(show_name no)
@@ -13008,7 +12994,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R3")
+					(reference "SR3")
 					(unit 1)
 				)
 			)
@@ -13104,8 +13090,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "2c26ca43-3f88-4a51-a361-c80f376ee6e0")
-		(property "Reference" "R21"
-			(at 84.836 25.4 0)
+		(property "Reference" "PR3"
+			(at 84.582 25.654 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13126,7 +13112,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 84.582 30.48 90)
 			(hide yes)
 			(show_name no)
@@ -13168,7 +13154,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R21")
+					(reference "PR3")
 					(unit 1)
 				)
 			)
@@ -13443,7 +13429,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 47.9552 27.94 0)
 			(hide yes)
 			(show_name no)
@@ -13492,6 +13478,83 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 170.18 19.05 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "333f771f-7e49-4e7a-bd92-027e86336a30")
+		(property "Reference" "#PWR025"
+			(at 170.18 22.86 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 170.18 14.732 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 170.18 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 170.18 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 170.18 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "27c8472c-39a1-491f-908d-73e3be5c46a0")
+		)
+		(instances
+			(project "esp32-wavplayer-final"
+				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
+					(reference "#PWR025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 128.27 45.72 0)
 		(unit 1)
@@ -13502,7 +13565,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "343093b3-a73b-4cf4-9c9a-e966397b01f7")
-		(property "Reference" "R24"
+		(property "Reference" "PR6"
 			(at 126.238 41.91 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13524,7 +13587,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 126.492 45.72 90)
 			(hide yes)
 			(show_name no)
@@ -13566,7 +13629,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R24")
+					(reference "PR6")
 					(unit 1)
 				)
 			)
@@ -13583,7 +13646,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "34731384-4520-44bc-ac63-cc13681a2b6a")
-		(property "Reference" "UC2"
+		(property "Reference" "CC2"
 			(at 38.608 104.902 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13605,7 +13668,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 41.6052 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -13647,7 +13710,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "UC2")
+					(reference "CC2")
 					(unit 1)
 				)
 			)
@@ -13744,7 +13807,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3729a54c-02a5-4cfc-858d-8a35990005e1")
-		(property "Reference" "F1"
+		(property "Reference" "PDVR1"
 			(at 62.23 12.7 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13815,7 +13878,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "F1")
+					(reference "PDVR1")
 					(unit 1)
 				)
 			)
@@ -14006,7 +14069,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "38a46488-264d-40ff-adca-576e12b56533")
-		(property "Reference" "C17"
+		(property "Reference" "AC9"
 			(at 107.442 105.918 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14028,7 +14091,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 113.03 103.1748 0)
 			(hide yes)
 			(show_name no)
@@ -14070,7 +14133,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C17")
+					(reference "AC9")
 					(unit 1)
 				)
 			)
@@ -14088,7 +14151,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3b27a6ca-0ed5-435b-8bbf-a44f235516ad")
-		(property "Reference" "UC3"
+		(property "Reference" "CC7"
 			(at 64.516 124.968 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14108,7 +14171,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 71.12 126.6952 0)
 			(hide yes)
 			(show_name no)
@@ -14150,7 +14213,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "UC3")
+					(reference "CC7")
 					(unit 1)
 				)
 			)
@@ -14167,7 +14230,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3ee274f2-f9f0-432c-83d7-09390f0040cd")
-		(property "Reference" "C26"
+		(property "Reference" "AC12"
 			(at 146.812 93.218 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14189,7 +14252,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 152.4 90.4748 0)
 			(hide yes)
 			(show_name no)
@@ -14231,7 +14294,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C26")
+					(reference "AC12")
 					(unit 1)
 				)
 			)
@@ -14248,7 +14311,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "3efeba14-5f65-4520-8550-c50dc2e613b3")
-		(property "Reference" "R11"
+		(property "Reference" "DR3"
 			(at 250.19 146.05 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14268,7 +14331,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 250.19 147.828 90)
 			(hide yes)
 			(show_name no)
@@ -14310,7 +14373,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R11")
+					(reference "DR3")
 					(unit 1)
 				)
 			)
@@ -14327,7 +14390,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "40ff8844-691e-4ad2-8ccf-307e5db87b15")
-		(property "Reference" "C28"
+		(property "Reference" "OC1"
 			(at 59.182 91.694 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14349,7 +14412,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 61.9252 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -14391,7 +14454,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C28")
+					(reference "OC1")
 					(unit 1)
 				)
 			)
@@ -14408,7 +14471,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "41d56bad-0128-4894-becd-7551240f37e9")
-		(property "Reference" "R5"
+		(property "Reference" "PR1"
 			(at 37.846 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14430,7 +14493,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 37.592 72.39 90)
 			(hide yes)
 			(show_name no)
@@ -14472,7 +14535,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R5")
+					(reference "PR1")
 					(unit 1)
 				)
 			)
@@ -14489,7 +14552,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "43c6cf9c-cab4-405c-9c83-07b0ccd991ad")
-		(property "Reference" "R18"
+		(property "Reference" "BR2"
 			(at 121.92 172.974 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14511,7 +14574,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 118.872 173.99 90)
 			(hide yes)
 			(show_name no)
@@ -14553,7 +14616,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R18")
+					(reference "BR2")
 					(unit 1)
 				)
 			)
@@ -14570,7 +14633,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "473437db-1cfa-4ee9-acfd-3a5bd84d08d3")
-		(property "Reference" "R13"
+		(property "Reference" "DR2"
 			(at 239.268 114.3 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14592,7 +14655,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 239.522 115.57 90)
 			(hide yes)
 			(show_name no)
@@ -14634,7 +14697,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R13")
+					(reference "DR2")
 					(unit 1)
 				)
 			)
@@ -14730,7 +14793,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4a9bfa53-ad05-45a4-816a-06797d0f6f32")
-		(property "Reference" "C22"
+		(property "Reference" "AC4"
 			(at 169.672 114.808 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14752,7 +14815,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 175.26 112.0648 0)
 			(hide yes)
 			(show_name no)
@@ -14794,7 +14857,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C22")
+					(reference "AC4")
 					(unit 1)
 				)
 			)
@@ -14811,7 +14874,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4ac6aa76-49f5-4592-9a24-64fde4af8700")
-		(property "Reference" "C21"
+		(property "Reference" "AC14"
 			(at 161.29 95.504 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14833,7 +14896,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 166.37 96.8248 0)
 			(hide yes)
 			(show_name no)
@@ -14875,7 +14938,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C21")
+					(reference "AC14")
 					(unit 1)
 				)
 			)
@@ -14903,8 +14966,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LEDRED"
-			(at 131.826 192.278 90)
+		(property "Value" "PWRLED"
+			(at 131.064 189.484 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14914,7 +14977,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 134.62 186.69 0)
 			(hide yes)
 			(show_name no)
@@ -15005,7 +15068,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Module:Maple_Mini"
+		(property "Footprint" "Connector_Card:microSD_HC_Hirose_DM3AT-SF-PEJM5"
 			(at 317.5 15.24 0)
 			(hide yes)
 			(show_name no)
@@ -15245,7 +15308,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "56a124d0-c9c7-4f47-af50-89704707e5bf")
-		(property "Reference" "C27"
+		(property "Reference" "BC1"
 			(at 104.902 182.372 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15267,7 +15330,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 107.6452 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -15309,7 +15372,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C27")
+					(reference "BC1")
 					(unit 1)
 				)
 			)
@@ -15326,7 +15389,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "59f79bbc-7ca8-43d1-ab99-93b36a6dd352")
-		(property "Reference" "UC1"
+		(property "Reference" "CC1"
 			(at 31.242 104.902 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15348,7 +15411,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 33.9852 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -15390,7 +15453,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "UC1")
+					(reference "CC1")
 					(unit 1)
 				)
 			)
@@ -15407,7 +15470,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5cfd31cc-6793-4975-a87c-491701f6b130")
-		(property "Reference" "R9"
+		(property "Reference" "PR8"
 			(at 182.88 33.02 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15427,7 +15490,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 182.88 34.798 90)
 			(hide yes)
 			(show_name no)
@@ -15469,7 +15532,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R9")
+					(reference "PR8")
 					(unit 1)
 				)
 			)
@@ -15563,26 +15626,27 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "6555791b-23e0-4d0a-a3d7-31fa4d87a5a1")
-		(property "Reference" "F2"
-			(at 184.15 111.76 0)
+		(property "Reference" "AVR2"
+			(at 184.404 105.156 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Value" "ME6211C33M5"
-			(at 186.69 111.76 0)
+			(at 186.944 105.156 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
@@ -15636,7 +15700,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "F2")
+					(reference "AVR2")
 					(unit 1)
 				)
 			)
@@ -15818,7 +15882,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "69018140-8463-46d3-b641-c149465724b5")
-		(property "Reference" "Q1"
+		(property "Reference" "BMFT1"
 			(at 196.85 36.7598 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15895,7 +15959,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "Q1")
+					(reference "BMFT1")
 					(unit 1)
 				)
 			)
@@ -15991,7 +16055,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "69f39cc5-04ef-44b0-b129-ec81e9a3d93c")
-		(property "Reference" "C23"
+		(property "Reference" "AC7"
 			(at 177.292 121.158 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16013,7 +16077,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 182.88 118.4148 0)
 			(hide yes)
 			(show_name no)
@@ -16055,86 +16119,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C23")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 262.89 77.47 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "6ba3a337-d297-4fb9-adc5-3f89682130ef")
-		(property "Reference" "C8"
-			(at 265.176 76.2 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C"
-			(at 265.176 78.74 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 266.7 76.5048 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 262.89 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 262.89 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "cfeda617-61ad-434f-b950-7b2936e798b4")
-		)
-		(pin "2"
-			(uuid "dad06024-677d-4b11-a82b-522fd8846554")
-		)
-		(instances
-			(project "esp32-wavplayer-final"
-				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C8")
+					(reference "AC7")
 					(unit 1)
 				)
 			)
@@ -16151,7 +16136,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6d2e617c-d3fc-4b6f-a12b-df2d3efef255")
-		(property "Reference" "R2"
+		(property "Reference" "SR2"
 			(at 232.41 17.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16173,7 +16158,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 229.362 19.05 90)
 			(hide yes)
 			(show_name no)
@@ -16215,7 +16200,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R2")
+					(reference "SR2")
 					(unit 1)
 				)
 			)
@@ -16232,7 +16217,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6f37cf9f-a3fd-44fa-9c05-03722b14d913")
-		(property "Reference" "R15"
+		(property "Reference" "AR1"
 			(at 138.684 95.25 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16252,7 +16237,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 144.018 95.25 90)
 			(hide yes)
 			(show_name no)
@@ -16294,7 +16279,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R15")
+					(reference "AR1")
 					(unit 1)
 				)
 			)
@@ -16390,7 +16375,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "71a6605c-0ac8-4b76-abc7-550e6293336c")
-		(property "Reference" "R25"
+		(property "Reference" "CR1"
 			(at 91.44 164.084 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16412,7 +16397,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 88.392 165.1 90)
 			(hide yes)
 			(show_name no)
@@ -16454,7 +16439,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R25")
+					(reference "CR1")
 					(unit 1)
 				)
 			)
@@ -16551,7 +16536,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7594eae3-ea41-44af-b813-47903ac79ada")
-		(property "Reference" "R6"
+		(property "Reference" "PR2"
 			(at 44.45 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16573,7 +16558,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 43.942 72.39 90)
 			(hide yes)
 			(show_name no)
@@ -16615,7 +16600,86 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R6")
+					(reference "PR2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 248.92 87.63 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "770e8b00-e28c-4ae9-99ce-f6b6b4e9fb93")
+		(property "Reference" "DC5"
+			(at 248.92 82.042 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "C"
+			(at 248.92 84.582 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 252.73 86.6648 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 248.92 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 248.92 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e600c9f4-9f16-417f-9544-0b978bb5522f")
+		)
+		(pin "2"
+			(uuid "b902a724-4024-48bf-a241-dbb794ae549a")
+		)
+		(instances
+			(project "esp32-wavplayer-final"
+				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
+					(reference "DC5")
 					(unit 1)
 				)
 			)
@@ -16632,7 +16696,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7b64155a-bb5e-46fa-8a06-762e9b1ab4d7")
-		(property "Reference" "C34"
+		(property "Reference" "PC4"
 			(at 148.082 30.734 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16654,7 +16718,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 150.8252 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -16696,7 +16760,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C34")
+					(reference "PC4")
 					(unit 1)
 				)
 			)
@@ -16794,7 +16858,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7ec66ad5-cdac-49d8-b1c3-d85476de3cc6")
-		(property "Reference" "R22"
+		(property "Reference" "PR4"
 			(at 97.028 30.48 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16816,7 +16880,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 97.282 34.29 90)
 			(hide yes)
 			(show_name no)
@@ -16858,7 +16922,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R22")
+					(reference "PR4")
 					(unit 1)
 				)
 			)
@@ -16875,7 +16939,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7ee38b81-179e-46a0-a154-29114ab12340")
-		(property "Reference" "C25"
+		(property "Reference" "AC13"
 			(at 144.272 87.122 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16897,7 +16961,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 149.86 84.1248 0)
 			(hide yes)
 			(show_name no)
@@ -16939,7 +17003,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C25")
+					(reference "AC13")
 					(unit 1)
 				)
 			)
@@ -17047,7 +17111,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LEDBLU"
+		(property "Value" "ONLED"
 			(at 147.32 190.8174 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17058,7 +17122,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 143.51 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -17207,7 +17271,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "824f0cfb-91db-416d-a6d9-62600d3f5320")
-		(property "Reference" "C18"
+		(property "Reference" "AC10"
 			(at 107.188 97.028 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17229,7 +17293,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 113.03 94.2848 0)
 			(hide yes)
 			(show_name no)
@@ -17271,7 +17335,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C18")
+					(reference "AC10")
 					(unit 1)
 				)
 			)
@@ -17602,8 +17666,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x01_Pin")
-		(at 170.18 13.97 270)
+		(lib_id "Device:C")
+		(at 241.3 76.2 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17611,32 +17675,29 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8849fd2d-30c7-4217-b47b-45d71de18975")
-		(property "Reference" "J3"
-			(at 171.45 13.3349 90)
+		(uuid "87b5d7a7-96b1-4032-aef7-9c40f9dc8de2")
+		(property "Reference" "DC3"
+			(at 243.586 74.93 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "BOUT+"
-			(at 171.45 15.8749 90)
+		(property "Value" "C"
+			(at 243.586 77.47 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 170.18 13.97 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 245.11 75.2348 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17647,7 +17708,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 170.18 13.97 0)
+			(at 241.3 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17657,8 +17718,8 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x01, script generated"
-			(at 170.18 13.97 0)
+		(property "Description" "Unpolarized capacitor"
+			(at 241.3 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17669,12 +17730,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "92c8de56-cf27-4ff3-9a98-93eb79a8875d")
+			(uuid "f2774c35-fe26-4f9e-85c8-409ff7b9f3b8")
+		)
+		(pin "2"
+			(uuid "4ad8abf4-fc10-49f8-b199-ace2a44c9f0f")
 		)
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "J3")
+					(reference "DC3")
 					(unit 1)
 				)
 			)
@@ -17770,7 +17834,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8c37e30e-aec5-40cc-93ee-6eb06c4e1aaa")
-		(property "Reference" "R26"
+		(property "Reference" "CR2"
 			(at 85.344 154.94 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17792,7 +17856,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 86.36 157.988 90)
 			(hide yes)
 			(show_name no)
@@ -17834,7 +17898,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R26")
+					(reference "CR2")
 					(unit 1)
 				)
 			)
@@ -18086,7 +18150,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "92078fb4-6638-4bc8-9338-92867c4fc711")
-		(property "Reference" "C5"
+		(property "Reference" "CC6"
 			(at 22.86 118.872 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18108,7 +18172,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 25.0952 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -18150,7 +18214,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C5")
+					(reference "CC6")
 					(unit 1)
 				)
 			)
@@ -18167,7 +18231,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "97567dfc-a15f-4be4-8675-33eb28ca8035")
-		(property "Reference" "R20"
+		(property "Reference" "LR2"
 			(at 144.78 175.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18189,7 +18253,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 141.732 176.53 90)
 			(hide yes)
 			(show_name no)
@@ -18231,7 +18295,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R20")
+					(reference "LR2")
 					(unit 1)
 				)
 			)
@@ -18248,7 +18312,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "9c8de58b-177d-4a24-b861-47b307260b08")
-		(property "Reference" "C32"
+		(property "Reference" "CC9"
 			(at 11.938 171.958 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18270,7 +18334,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 14.9352 177.8 0)
 			(hide yes)
 			(show_name no)
@@ -18312,165 +18376,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C32")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x01_Pin")
-		(at 189.23 15.24 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9cddf5c6-ea1a-4ab0-87b5-c65e17dd2ffe")
-		(property "Reference" "J4"
-			(at 190.5 14.6049 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BOUT-"
-			(at 190.5 17.1449 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 189.23 15.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 189.23 15.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated"
-			(at 189.23 15.24 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "cf22eb03-f6c8-47ad-9221-fb2cd5a5202f")
-		)
-		(instances
-			(project "esp32-wavplayer-final"
-				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 254 92.71 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9d512ea5-1c22-47eb-87e2-913b60eb61e9")
-		(property "Reference" "C7"
-			(at 254 87.122 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C"
-			(at 254 89.662 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 257.81 91.7448 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 254 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 254 92.71 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "61c22b64-3ed6-40b2-b280-88bc56e4d3c4")
-		)
-		(pin "2"
-			(uuid "4d33fbf8-3448-4733-b59c-5873ae3d1993")
-		)
-		(instances
-			(project "esp32-wavplayer-final"
-				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C7")
+					(reference "CC9")
 					(unit 1)
 				)
 			)
@@ -18487,7 +18393,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a05a884d-edfa-40bc-9551-bbd25ae75914")
-		(property "Reference" "R19"
+		(property "Reference" "LR1"
 			(at 135.89 173.99 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18509,7 +18415,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 132.842 175.26 90)
 			(hide yes)
 			(show_name no)
@@ -18551,7 +18457,86 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R19")
+					(reference "LR1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 241.3 82.55 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a21d93c6-c36b-4311-8418-1f48626aca61")
+		(property "Reference" "DC4"
+			(at 241.3 77.47 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "C"
+			(at 241.3 80.01 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 237.49 83.5152 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 241.3 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 241.3 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "cdf78fde-6b4a-4ae3-83f9-4c12fb2f6ab2")
+		)
+		(pin "1"
+			(uuid "dca82823-f816-4ee5-af2d-11730d162430")
+		)
+		(instances
+			(project "esp32-wavplayer-final"
+				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
+					(reference "DC4")
 					(unit 1)
 				)
 			)
@@ -18885,7 +18870,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ab5139a0-12e8-4d71-a065-0dd1d4876b8b")
-		(property "Reference" "C3"
+		(property "Reference" "CC4"
 			(at 32.766 118.872 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18907,7 +18892,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 35.2552 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -18949,7 +18934,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C3")
+					(reference "CC4")
 					(unit 1)
 				)
 			)
@@ -19035,85 +19020,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 241.3 82.55 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "afbe68cc-4169-44bd-a20b-d538539bb656")
-		(property "Reference" "C9"
-			(at 243.586 81.28 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C"
-			(at 243.586 83.82 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 245.11 81.5848 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 241.3 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 241.3 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "72704910-603f-4ae4-bdb9-dc7ecb6af09d")
-		)
-		(pin "2"
-			(uuid "0dda6fd9-a929-412b-a125-41a6b2b28b31")
-		)
-		(instances
-			(project "esp32-wavplayer-final"
-				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:LED")
 		(at 99.06 26.67 90)
 		(unit 1)
@@ -19135,7 +19041,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "STNDLED"
 			(at 97.536 24.384 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19146,7 +19052,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 99.06 26.67 0)
 			(hide yes)
 			(show_name no)
@@ -19294,7 +19200,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b379905f-b161-4248-83c3-68bae9ba91d4")
-		(property "Reference" "R12"
+		(property "Reference" "DR1"
 			(at 235.458 114.3 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19316,7 +19222,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 235.712 115.57 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19357,7 +19263,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R12")
+					(reference "DR1")
 					(unit 1)
 				)
 			)
@@ -19531,7 +19437,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b750dd05-6f38-4c1f-8e36-511eb1294714")
-		(property "Reference" "C1"
+		(property "Reference" "SC1"
 			(at 219.71 39.878 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19553,7 +19459,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 221.9452 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -19595,7 +19501,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C1")
+					(reference "SC1")
 					(unit 1)
 				)
 			)
@@ -19612,7 +19518,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b7ad19a1-1f71-4802-ac49-8b4e78e93b3e")
-		(property "Reference" "D1"
+		(property "Reference" "AD1"
 			(at 123.19 87.376 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19634,7 +19540,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
+		(property "Footprint" "Diode_SMD:D_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 124.46 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -19698,7 +19604,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "D1")
+					(reference "AD1")
 					(unit 1)
 				)
 			)
@@ -19794,7 +19700,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bb02bf37-276b-4bdb-9d31-86e9dae2628b")
-		(property "Reference" "C10"
+		(property "Reference" "DC7"
 			(at 256.794 151.638 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19814,7 +19720,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 257.81 151.4348 0)
 			(hide yes)
 			(show_name no)
@@ -19856,7 +19762,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C10")
+					(reference "DC7")
 					(unit 1)
 				)
 			)
@@ -19873,7 +19779,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bb1c5a57-ad22-446d-a96d-eacbb7415920")
-		(property "Reference" "R10"
+		(property "Reference" "CR4"
 			(at 53.34 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19893,7 +19799,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 53.34 55.372 90)
 			(hide yes)
 			(show_name no)
@@ -19935,7 +19841,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R10")
+					(reference "CR4")
 					(unit 1)
 				)
 			)
@@ -19952,7 +19858,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "bece8860-6ce9-4817-9d17-995664c210da")
-		(property "Reference" "C14"
+		(property "Reference" "AC8"
 			(at 107.442 132.588 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19974,7 +19880,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 113.03 129.8448 0)
 			(hide yes)
 			(show_name no)
@@ -20016,7 +19922,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C14")
+					(reference "AC8")
 					(unit 1)
 				)
 			)
@@ -20033,7 +19939,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c050b2c2-3c23-4c2a-a02c-578c3ab087b2")
-		(property "Reference" "C35"
+		(property "Reference" "PC5"
 			(at 177.546 20.574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20055,7 +19961,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 182.88 20.6248 0)
 			(hide yes)
 			(show_name no)
@@ -20097,7 +20003,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C35")
+					(reference "PC5")
 					(unit 1)
 				)
 			)
@@ -20125,7 +20031,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
+		(property "Value" "CHRGLED"
 			(at 102.362 20.574 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20136,7 +20042,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 104.14 22.86 0)
 			(hide yes)
 			(show_name no)
@@ -20206,7 +20112,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c391c59f-e22f-4a07-bb98-a576a3fc6157")
-		(property "Reference" "C20"
+		(property "Reference" "AC11"
 			(at 145.542 99.568 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20228,7 +20134,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 151.13 96.8248 0)
 			(hide yes)
 			(show_name no)
@@ -20270,7 +20176,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C20")
+					(reference "AC11")
 					(unit 1)
 				)
 			)
@@ -20287,7 +20193,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c463d397-001c-4812-b0ec-b34b4f671a9d")
-		(property "Reference" "R14"
+		(property "Reference" "AR3"
 			(at 115.57 87.884 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20309,7 +20215,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 116.84 90.678 90)
 			(hide yes)
 			(show_name no)
@@ -20351,7 +20257,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R14")
+					(reference "AR3")
 					(unit 1)
 				)
 			)
@@ -20447,7 +20353,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c5dd97a0-2366-4bc3-8b7d-8729b97a6ef6")
-		(property "Reference" "UC13"
+		(property "Reference" "CC3"
 			(at 46.736 99.822 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20469,7 +20375,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 50.4952 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -20511,86 +20417,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "UC13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 241.3 76.2 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c7a50369-b048-41ca-882c-3652d92850ae")
-		(property "Reference" "C12"
-			(at 244.094 74.93 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C"
-			(at 244.094 77.216 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 245.11 75.2348 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 241.3 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 241.3 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f2f72634-ccc6-479b-9ff6-f996c54c88ef")
-		)
-		(pin "2"
-			(uuid "61663784-9d7d-4121-b473-048d6124ff75")
-		)
-		(instances
-			(project "esp32-wavplayer-final"
-				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C12")
+					(reference "CC3")
 					(unit 1)
 				)
 			)
@@ -20765,7 +20592,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d5316213-aba8-4ab3-82df-d6fdf1a317dc")
-		(property "Reference" "C16"
+		(property "Reference" "AC3"
 			(at 193.802 93.218 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20787,7 +20614,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 199.39 90.4748 0)
 			(hide yes)
 			(show_name no)
@@ -20829,7 +20656,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C16")
+					(reference "AC3")
 					(unit 1)
 				)
 			)
@@ -21003,7 +20830,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "db3f58e3-c006-4cc1-9114-204bb0818992")
-		(property "Reference" "C15"
+		(property "Reference" "AC2"
 			(at 193.802 102.108 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21025,7 +20852,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 199.39 99.3648 0)
 			(hide yes)
 			(show_name no)
@@ -21067,86 +20894,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 248.92 87.63 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "dbbee5df-57f8-4b07-b6e3-32ef940cd2e0")
-		(property "Reference" "C6"
-			(at 248.92 82.55 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C"
-			(at 248.92 85.09 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 245.11 88.5952 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 248.92 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 248.92 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "9449623e-ddfa-4c1d-9db1-3b62ab90c42b")
-		)
-		(pin "1"
-			(uuid "d718ec03-7cfc-489e-895d-d0d8234bbd4b")
-		)
-		(instances
-			(project "esp32-wavplayer-final"
-				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C6")
+					(reference "AC2")
 					(unit 1)
 				)
 			)
@@ -21163,7 +20911,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "dd212276-9d0e-4278-b22f-66b56fa91f9c")
-		(property "Reference" "R7"
+		(property "Reference" "CR3"
 			(at 53.34 52.07 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21183,7 +20931,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 53.34 50.292 90)
 			(hide yes)
 			(show_name no)
@@ -21225,7 +20973,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R7")
+					(reference "CR3")
 					(unit 1)
 				)
 			)
@@ -21242,7 +20990,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e13f05fa-f34c-47c2-a531-c53c78c65d04")
-		(property "Reference" "R1"
+		(property "Reference" "SR1"
 			(at 237.49 17.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21264,7 +21012,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 234.442 19.05 90)
 			(hide yes)
 			(show_name no)
@@ -21306,7 +21054,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R1")
+					(reference "SR1")
 					(unit 1)
 				)
 			)
@@ -21323,7 +21071,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e318a414-d631-460e-b5f5-7a1f91997a18")
-		(property "Reference" "R27"
+		(property "Reference" "PR7"
 			(at 154.94 27.686 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21343,7 +21091,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 154.94 26.162 90)
 			(hide yes)
 			(show_name no)
@@ -21385,7 +21133,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R27")
+					(reference "PR7")
 					(unit 1)
 				)
 			)
@@ -21402,7 +21150,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e566be3b-647b-4ea0-b85e-e639ddf1409a")
-		(property "Reference" "C33"
+		(property "Reference" "CC8"
 			(at 5.588 171.958 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21424,7 +21172,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 8.5852 177.8 0)
 			(hide yes)
 			(show_name no)
@@ -21466,7 +21214,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C33")
+					(reference "CC8")
 					(unit 1)
 				)
 			)
@@ -21562,7 +21310,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "ea0a8dbb-1634-40fa-ac08-c0ccff03bac5")
-		(property "Reference" "C13"
+		(property "Reference" "AC1"
 			(at 193.802 137.922 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21584,7 +21332,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 199.39 134.9248 0)
 			(hide yes)
 			(show_name no)
@@ -21626,7 +21374,86 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C13")
+					(reference "AC1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 189.23 20.32 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ea145ae4-64dd-445d-ad28-3c815986a85d")
+		(property "Reference" "#PWR056"
+			(at 189.23 13.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Earth"
+			(at 189.23 15.24 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 189.23 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 189.23 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 189.23 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5912e8ff-159c-4359-aba9-d48b1343f72b")
+		)
+		(instances
+			(project "esp32-wavplayer-final"
+				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
+					(reference "#PWR056")
 					(unit 1)
 				)
 			)
@@ -21803,7 +21630,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
+		(lib_id "power:Earth")
 		(at 146.05 147.32 0)
 		(unit 1)
 		(body_style 1)
@@ -21813,8 +21640,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "ead7ba91-253f-42f9-b262-19034bae9050")
-		(property "Reference" "#PWR025"
+		(uuid "ebf57ae4-e980-416d-ace6-6036462c0d6e")
+		(property "Reference" "#PWR047"
 			(at 146.05 153.67 0)
 			(hide yes)
 			(show_name no)
@@ -21825,15 +21652,15 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 146.0499 151.13 90)
+		(property "Value" "Earth"
+			(at 146.05 152.4 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -21858,7 +21685,7 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
 			(at 146.05 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -21870,12 +21697,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "5434d525-3413-4716-bf10-174d89fb248b")
+			(uuid "2c8d2c9b-a404-4e9a-aed1-e2ca2618c014")
 		)
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "#PWR025")
+					(reference "#PWR047")
 					(unit 1)
 				)
 			)
@@ -21972,7 +21799,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f422bc8f-7e1b-4189-8ed0-b7dbc2286bba")
-		(property "Reference" "C24"
+		(property "Reference" "AC6"
 			(at 177.292 114.808 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21994,7 +21821,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 182.88 112.0648 0)
 			(hide yes)
 			(show_name no)
@@ -22036,7 +21863,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C24")
+					(reference "AC6")
 					(unit 1)
 				)
 			)
@@ -22053,7 +21880,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f61aba5a-65f4-4634-a676-ac7d787a7635")
-		(property "Reference" "C4"
+		(property "Reference" "CC5"
 			(at 27.94 118.872 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22075,7 +21902,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 30.1752 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -22117,7 +21944,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C4")
+					(reference "CC5")
 					(unit 1)
 				)
 			)
@@ -22134,7 +21961,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f6ca2c83-e7fe-4723-a483-21c00fe513df")
-		(property "Reference" "D2"
+		(property "Reference" "PD1"
 			(at 40.64 29.718 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22156,7 +21983,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder"
+		(property "Footprint" "Diode_SMD:D_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
 			(at 39.37 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -22220,7 +22047,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "D2")
+					(reference "PD1")
 					(unit 1)
 				)
 			)
@@ -22237,7 +22064,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f82b47ac-62ca-4ad5-b55b-b73e53febd5c")
-		(property "Reference" "R16"
+		(property "Reference" "AR2"
 			(at 131.826 95.25 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22257,7 +22084,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 137.668 95.25 90)
 			(hide yes)
 			(show_name no)
@@ -22299,7 +22126,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R16")
+					(reference "AR2")
 					(unit 1)
 				)
 			)
@@ -22474,7 +22301,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fa8f9b9c-0561-4231-88e3-2f206cab21c3")
-		(property "Reference" "R4"
+		(property "Reference" "SR4"
 			(at 220.726 17.78 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22496,7 +22323,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 217.932 19.05 90)
 			(hide yes)
 			(show_name no)
@@ -22538,7 +22365,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "R4")
+					(reference "SR4")
 					(unit 1)
 				)
 			)
@@ -22555,7 +22382,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fb3afe8b-afdf-49d8-9e1e-0aee7808939a")
-		(property "Reference" "U1"
+		(property "Reference" "BTM1"
 			(at 116.84 18.034 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22577,7 +22404,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.3mm_ThermalVias"
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
 			(at 117.348 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -22640,7 +22467,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "U1")
+					(reference "BTM1")
 					(unit 1)
 				)
 			)
@@ -22657,8 +22484,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "fc7fc778-7d40-4048-91b1-65f46e52df2d")
-		(property "Reference" "C30"
-			(at 89.408 28.702 0)
+		(property "Reference" "PC3"
+			(at 89.408 26.416 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22679,7 +22506,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 92.4052 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -22721,7 +22548,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "C30")
+					(reference "PC3")
 					(unit 1)
 				)
 			)
@@ -22974,7 +22801,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 74.6252 27.94 0)
 			(hide yes)
 			(show_name no)
@@ -23017,6 +22844,85 @@
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
 					(reference "PC2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 262.89 77.47 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fec492c5-e8ff-4743-82a0-d5e28c149b2d")
+		(property "Reference" "DC2"
+			(at 265.684 76.2 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "C"
+			(at 265.684 78.486 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 266.7 76.5048 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 262.89 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 262.89 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "466683ff-f2f1-4135-944e-3b38ca1ebffd")
+		)
+		(pin "2"
+			(uuid "4da4765e-18d6-46e8-8769-4457084afe96")
+		)
+		(instances
+			(project "esp32-wavplayer-final"
+				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
+					(reference "DC2")
 					(unit 1)
 				)
 			)
