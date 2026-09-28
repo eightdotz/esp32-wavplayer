@@ -685,7 +685,7 @@
         "uuid": "e8fbce24-19e4-4fd2-98dc-690d4768f544"
       }
     ],
-    "used_designators": "BT1,SW1-2,DC2-6,DS1,Q1,F3,U1-4,R1-27,Y1,#PWR1-56,D1-6,C1-35,J1-4",
+    "used_designators": "BD2,SW1-5,BT1,BR3-5,F3,Q1,PD2,J1-4,C1-35,U1-4,D1-6,#PWR1-59,Y1,DS1,DC2-6,R1-27",
     "variants": []
   },
   "sheets": [
