@@ -637,7 +637,7 @@
           "show": false
         }
       ],
-      "filter_string": "",
+      "filter_string": "BR",
       "group_symbols": true,
       "include_excluded_from_bom": true,
       "name": "",
@@ -685,7 +685,7 @@
         "uuid": "e8fbce24-19e4-4fd2-98dc-690d4768f544"
       }
     ],
-    "used_designators": "D1-6,U1-4,C1-35,F3,#PWR1-62,Y1,BD2,BT1,SW1-5,J1-4,PD2,DS1,DC2-6,R1-27,OC3,Q1,BR3-5",
+    "used_designators": "L1,R1-27,DC2-6,DC8,BCR2,BCC2-3,#PWR1-67,Y1,BD2,C1-35,D1-6,U1-4,F3,BR3-5,Q1-2,OC3,J1-4,PD2,DS1,DR4-5,SW1-5,BT1",
     "variants": []
   },
   "sheets": [
