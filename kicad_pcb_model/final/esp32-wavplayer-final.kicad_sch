@@ -7648,6 +7648,12 @@
 		(uuid "86091493-eab4-47db-a127-a3f825fd98aa")
 	)
 	(junction
+		(at 146.05 21.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "86ef4c43-4f6c-4938-a10f-dd5593c5b487")
+	)
+	(junction
 		(at 22.86 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7808,12 +7814,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b7ee083b-0253-4747-95f6-4ecd4819303e")
-	)
-	(junction
-		(at 189.23 21.59)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b8155c4f-60c7-4f95-a5ce-05d6b8564ec0")
 	)
 	(junction
 		(at 184.15 97.79)
@@ -7982,6 +7982,10 @@
 	(no_connect
 		(at 19.05 184.15)
 		(uuid "287ccde8-512f-4c26-94af-551b8472d101")
+	)
+	(no_connect
+		(at 114.3 48.26)
+		(uuid "4a751857-60ee-4653-aaa7-2b9e9cf3e77b")
 	)
 	(no_connect
 		(at 191.77 43.18)
@@ -8371,7 +8375,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 20.32) (xy 189.23 21.59)
+			(xy 189.23 20.32) (xy 189.23 33.02)
 		)
 		(stroke
 			(width 0)
@@ -8971,16 +8975,6 @@
 	)
 	(wire
 		(pts
-			(xy 182.88 21.59) (xy 189.23 21.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "401ab0a9-b11e-4321-9c39-9101bb8b40a9")
-	)
-	(wire
-		(pts
 			(xy 257.81 118.11) (xy 246.38 118.11)
 		)
 		(stroke
@@ -9188,6 +9182,16 @@
 			(type default)
 		)
 		(uuid "57d1abcd-7987-486f-b6c8-fb281e1fbb95")
+	)
+	(wire
+		(pts
+			(xy 146.05 21.59) (xy 146.05 13.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a8caae2-6f38-494c-9450-11c4e22e4c07")
 	)
 	(wire
 		(pts
@@ -10371,16 +10375,6 @@
 	)
 	(wire
 		(pts
-			(xy 175.26 21.59) (xy 170.18 21.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae19c12f-a15f-403b-911a-2ce6ff52878d")
-	)
-	(wire
-		(pts
 			(xy 30.48 102.87) (xy 46.99 102.87)
 		)
 		(stroke
@@ -10428,6 +10422,16 @@
 			(type default)
 		)
 		(uuid "b125f154-92d1-4d60-8809-c7fc2da001ed")
+	)
+	(wire
+		(pts
+			(xy 146.05 21.59) (xy 149.86 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b1545571-c692-4f1c-8b32-89d507c6b38b")
 	)
 	(wire
 		(pts
@@ -10551,6 +10555,16 @@
 	)
 	(wire
 		(pts
+			(xy 76.2 20.32) (xy 73.66 20.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb2f8c96-ab83-44ac-a1f3-136b8cd84090")
+	)
+	(wire
+		(pts
 			(xy 195.58 59.69) (xy 207.01 59.69)
 		)
 		(stroke
@@ -10608,6 +10622,16 @@
 			(type default)
 		)
 		(uuid "be6182f6-f3cb-4235-b7d0-c805a24a3d1e")
+	)
+	(wire
+		(pts
+			(xy 146.05 13.97) (xy 45.72 13.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be7c80e6-ef1f-49cc-ac0a-d8559910da97")
 	)
 	(wire
 		(pts
@@ -11061,16 +11085,6 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 13.97) (xy 170.18 21.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dfda1e42-4821-4e22-a9e8-d089dd2c72bb")
-	)
-	(wire
-		(pts
 			(xy 226.06 123.19) (xy 257.81 123.19)
 		)
 		(stroke
@@ -11281,16 +11295,6 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 21.59) (xy 189.23 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "efc9e0e9-4dfc-466f-b39c-bb4c96cb99fe")
-	)
-	(wire
-		(pts
 			(xy 257.81 85.09) (xy 245.11 85.09)
 		)
 		(stroke
@@ -11298,16 +11302,6 @@
 			(type default)
 		)
 		(uuid "f082594d-a17c-4d12-8fa2-2ab921fbf427")
-	)
-	(wire
-		(pts
-			(xy 170.18 13.97) (xy 45.72 13.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f1021b2e-b2a0-43cd-9680-7a3a037c0ffa")
 	)
 	(wire
 		(pts
@@ -11391,7 +11385,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 21.59) (xy 149.86 21.59)
+			(xy 127 21.59) (xy 146.05 21.59)
 		)
 		(stroke
 			(width 0)
@@ -20980,6 +20974,83 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 81.28 20.32 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "90744a13-8af4-45a2-ba35-9401905cbd41")
+		(property "Reference" "J3"
+			(at 80.645 15.24 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "DBG3v3"
+			(at 80.645 17.78 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 81.28 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 81.28 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e9292a5c-370a-4cb7-8558-1638e0077319")
+		)
+		(instances
+			(project "esp32-wavplayer-final"
+				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
+					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 24.13 120.65 0)
 		(unit 1)
@@ -23082,87 +23153,6 @@
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
 					(reference "AC8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 179.07 21.59 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c050b2c2-3c23-4c2a-a02c-578c3ab087b2")
-		(property "Reference" "PC5"
-			(at 177.546 20.574 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10uF"
-			(at 184.658 20.574 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 182.88 20.6248 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 179.07 21.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 179.07 21.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "4a1976d7-e150-4705-b2fc-3466290686f1")
-		)
-		(pin "1"
-			(uuid "2adb21f9-a9e2-4c64-a5ce-e1ab951dbb9e")
-		)
-		(instances
-			(project "esp32-wavplayer-final"
-				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "PC5")
 					(unit 1)
 				)
 			)
