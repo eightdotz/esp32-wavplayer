@@ -14566,7 +14566,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
 			(at 254 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -17430,7 +17430,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 207.01 72.39 0)
 			(hide yes)
 			(show_name no)
