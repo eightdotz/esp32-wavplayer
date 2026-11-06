@@ -7310,7 +7310,7 @@
 		(uuid "1063d440-0e3c-4f30-8aa2-fe2f41e25490")
 	)
 	(junction
-		(at 158.75 40.64)
+		(at 158.75 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "10d19fe7-4ac8-4bc0-b19f-ecd4d0332cf9")
@@ -7608,6 +7608,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7926843b-09dd-4826-ae8f-089be99b3a6b")
+	)
+	(junction
+		(at 143.51 43.18)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7c9ea3be-adef-435f-b931-a10ec7bc0dc8")
 	)
 	(junction
 		(at 220.98 38.1)
@@ -8175,7 +8181,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 40.64) (xy 158.75 40.64)
+			(xy 140.97 43.18) (xy 143.51 43.18)
 		)
 		(stroke
 			(width 0)
@@ -8765,7 +8771,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 33.02) (xy 158.75 40.64)
+			(xy 158.75 33.02) (xy 158.75 44.45)
 		)
 		(stroke
 			(width 0)
@@ -8802,6 +8808,16 @@
 			(type default)
 		)
 		(uuid "3615d372-b035-42a7-a389-3835aebfefe9")
+	)
+	(wire
+		(pts
+			(xy 140.97 43.18) (xy 140.97 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36c660a3-ffe4-4434-804d-386db3421be5")
 	)
 	(wire
 		(pts
@@ -10305,16 +10321,6 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 44.45) (xy 158.75 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a91484d4-9536-43a2-8206-147697461a58")
-	)
-	(wire
-		(pts
 			(xy 217.17 118.11) (xy 226.06 118.11)
 		)
 		(stroke
@@ -10375,13 +10381,13 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 27.94) (xy 149.86 27.94)
+			(xy 143.51 43.18) (xy 158.75 43.18)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ae164a90-9cd8-4492-ac93-387983ee7a70")
+		(uuid "ae45b5be-450e-4ebe-b713-b49a98807030")
 	)
 	(wire
 		(pts
@@ -10502,6 +10508,16 @@
 			(type default)
 		)
 		(uuid "b424614f-ec6b-4bf5-8c68-de55ad4167d2")
+	)
+	(wire
+		(pts
+			(xy 137.16 27.94) (xy 138.43 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b45ea572-0a2d-44af-8cbd-0243008f9c88")
 	)
 	(wire
 		(pts
@@ -10652,6 +10668,16 @@
 			(type default)
 		)
 		(uuid "bf546713-838c-4ad0-a3e3-0413a5017dcb")
+	)
+	(wire
+		(pts
+			(xy 148.59 27.94) (xy 149.86 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0eecfeb-3811-4ec8-a002-6c3ed8a959e6")
 	)
 	(wire
 		(pts
@@ -14260,7 +14286,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
-		(at 140.97 40.64 0)
+		(at 135.89 40.64 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14271,7 +14297,7 @@
 		(fields_autoplaced yes)
 		(uuid "24a843b7-e694-40d3-9d30-043104e421ae")
 		(property "Reference" "J2"
-			(at 141.605 35.56 0)
+			(at 136.525 35.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14281,7 +14307,7 @@
 			)
 		)
 		(property "Value" "BIN-"
-			(at 141.605 38.1 0)
+			(at 136.525 38.1 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14291,7 +14317,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 140.97 40.64 0)
+			(at 135.89 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14302,7 +14328,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 140.97 40.64 0)
+			(at 135.89 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14313,7 +14339,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated"
-			(at 140.97 40.64 0)
+			(at 135.89 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16973,6 +16999,87 @@
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
 					(reference "DQ2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 143.51 39.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4e843c30-47df-46d1-b76c-ba9f5110cb11")
+		(property "Reference" "PR9"
+			(at 144.272 38.862 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1k"
+			(at 144.526 40.386 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 141.732 39.37 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 143.51 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 143.51 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "828ee754-5248-4c9e-9ba3-d3334d992c18")
+		)
+		(pin "1"
+			(uuid "798388be-b662-4d96-8026-719433a6ff9b")
+		)
+		(instances
+			(project "esp32-wavplayer-final"
+				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
+					(reference "PR9")
 					(unit 1)
 				)
 			)
@@ -22591,7 +22698,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
-		(at 140.97 27.94 0)
+		(at 132.08 27.94 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -22602,7 +22709,7 @@
 		(fields_autoplaced yes)
 		(uuid "b44e060f-136e-4ee9-a70e-42e09232d3d2")
 		(property "Reference" "J1"
-			(at 141.605 22.86 0)
+			(at 132.715 22.86 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22612,7 +22719,7 @@
 			)
 		)
 		(property "Value" "BIN+"
-			(at 141.605 25.4 0)
+			(at 132.715 25.4 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22622,7 +22729,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 140.97 27.94 0)
+			(at 132.08 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22633,7 +22740,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 140.97 27.94 0)
+			(at 132.08 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22644,7 +22751,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated"
-			(at 140.97 27.94 0)
+			(at 132.08 27.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -23838,6 +23945,92 @@
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
 					(reference "BD2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:FDN340P")
+		(at 143.51 30.48 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d32a11fa-6171-4fa0-a05b-b80e4ca43a93")
+		(property "Reference" "DQ3"
+			(at 143.51 21.59 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "FDN338P"
+			(at 143.51 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 145.415 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/FDN340P-D.PDF"
+			(at 147.32 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "-2A Id, -20V Vds, P-Channel MOSFET, 70mOhm Ron, SOT-23"
+			(at 143.51 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "536af000-dee5-47ef-b457-caad547a9828")
+		)
+		(pin "1"
+			(uuid "216cb10a-ae1f-4eba-99a8-00f21f2d57c2")
+		)
+		(pin "2"
+			(uuid "5c0c4ed8-356a-4572-a6ab-e79b7c1297c7")
+		)
+		(instances
+			(project "esp32-wavplayer-final"
+				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
+					(reference "DQ3")
 					(unit 1)
 				)
 			)
