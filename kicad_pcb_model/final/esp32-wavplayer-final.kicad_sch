@@ -7304,6 +7304,12 @@
 		(uuid "0e6eb006-fa3e-4a2e-9867-de8d502becb2")
 	)
 	(junction
+		(at 121.92 180.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0ef5a4a3-9a80-4cea-8251-93e2dd12f21c")
+	)
+	(junction
 		(at 231.14 45.72)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8811,6 +8817,16 @@
 	)
 	(wire
 		(pts
+			(xy 121.92 180.34) (xy 121.92 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3695c7f7-60c7-4a45-ab78-a702d79d0de4")
+	)
+	(wire
+		(pts
 			(xy 140.97 43.18) (xy 140.97 40.64)
 		)
 		(stroke
@@ -9268,6 +9284,16 @@
 			(type default)
 		)
 		(uuid "5c5fd458-5c10-4fa5-a965-1509601a1cdf")
+	)
+	(wire
+		(pts
+			(xy 121.92 179.07) (xy 121.92 180.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d1781e2-2ba1-4b04-a9cd-ada27f72a372")
 	)
 	(wire
 		(pts
@@ -10001,6 +10027,16 @@
 	)
 	(wire
 		(pts
+			(xy 116.84 180.34) (xy 121.92 180.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8ec3e1d9-74a5-4a57-a24c-f689e776c126")
+	)
+	(wire
+		(pts
 			(xy 139.7 132.08) (xy 168.91 132.08)
 		)
 		(stroke
@@ -10151,6 +10187,16 @@
 	)
 	(wire
 		(pts
+			(xy 116.84 185.42) (xy 116.84 180.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9857923c-57c5-4d49-af9e-859ceeb977c3")
+	)
+	(wire
+		(pts
 			(xy 175.26 44.45) (xy 158.75 44.45)
 		)
 		(stroke
@@ -10178,16 +10224,6 @@
 			(type default)
 		)
 		(uuid "9aefebb9-f7c0-4596-9109-4c2cfd7e9b0b")
-	)
-	(wire
-		(pts
-			(xy 121.92 179.07) (xy 121.92 180.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ca22553-0908-42a6-9e54-d0cff971785a")
 	)
 	(wire
 		(pts
@@ -11878,6 +11914,16 @@
 			(justify left bottom)
 		)
 		(uuid "830348be-6702-441c-b69a-c1c1943a603e")
+	)
+	(label "GPIO9"
+		(at 116.84 185.42 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8496ba32-b544-46f1-8b00-5ad4d18a6f18")
 	)
 	(label "GPIO1"
 		(at 134.62 142.24 270)
@@ -19326,7 +19372,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7b6e6dc1-39d4-4cf8-b35a-d5d86b967b45")
-		(property "Reference" "SW2"
+		(property "Reference" "SWBOOT1"
 			(at 119.888 182.118 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19390,7 +19436,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "SW2")
+					(reference "SWBOOT1")
 					(unit 1)
 				)
 			)
@@ -21898,7 +21944,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a6c18638-b110-49ce-a226-7340e33ab55a")
-		(property "Reference" "SW1"
+		(property "Reference" "SWEN1"
 			(at 102.108 182.118 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21962,7 +22008,7 @@
 		(instances
 			(project "esp32-wavplayer-final"
 				(path "/e8fbce24-19e4-4fd2-98dc-690d4768f544"
-					(reference "SW1")
+					(reference "SWEN1")
 					(unit 1)
 				)
 			)

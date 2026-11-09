@@ -528,7 +528,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "USBC-Debug/",
+      "plot": "ESP32-Debug/",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
@@ -689,7 +689,7 @@
         "uuid": "e8fbce24-19e4-4fd2-98dc-690d4768f544"
       }
     ],
-    "used_designators": "#PWR1-67,BCC2-3,BCR2,BD2,BR3-5,BT1,C1-35,D1-6,DC2-6,DC8,DQ3,DR4-5,DS1,F3,J1-4,L1,OC3,PD2,PR9,Q1-2,R1-27,SW1-5,U1-4,Y1",
+    "used_designators": "#PWR1-67,BCC2-3,BCR2,BD2,BR3-5,BT1,C1-35,D1-6,DC2-6,DC8,DQ3,DR4-5,DS1,F3,J1-4,L1,OC3,PD2,PR9,Q1-2,R1-27,SW1-5,SWBOOT1,SWEN1,U1-4,Y1",
     "variants": []
   },
   "sheets": [
