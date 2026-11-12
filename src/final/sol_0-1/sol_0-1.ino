@@ -66,9 +66,9 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 Maximum amount of songs and their character length to be loaded at once
 */
 
-#define SONG_LIST_HEIGHT = 1024
-#define SONG_LIST_LENGTH = 22
-
+#define LIST_HEIGHT 512
+#define LIST_LENGTH 128
+char menu[LIST_HEIGHT][LIST_LENGTH] = {0};
 /*
 Audio buffer declaration for mono and stereo
 */
@@ -80,7 +80,7 @@ User
 */
 
 struct ConfigInfo {
-  char working_directory[1024];
+  char working_directory[1024] = "/";
   char playing[128] = {0};
   int brightness = 2;
 };
@@ -420,14 +420,77 @@ Setup
 */
 //file.isDirectory();
 //file.mkdir();
-void update_working_directory() {
-  directory[1024];
-  //when going forward count until the last slash position and append, when going backwards note all / positions and go back 1 and terminate
+
+void add_entry(const char *name) {
+  return;
+}
+
+void list_directory() {
+  xSemaphoreTake(sd_mutex, portMAX_DELAY);
+  File directory = SD.open(User.working_directory);
+  if (!directory.isDirectory()) {
+    //wont open non-directory / files without extension
+    return;
+  }
+  File file = directory.openNextFile();
+  while (file) {
+    char name[128];
+    strlcpy(name, file.name(), sizeof(name));
+    file.close();
+    add_entry(name);
+    file = directory.openNextFile();
+  }
+  directory.close();
+  xSemaphoreGive(sd_mutex);
+}
+
+void update_working_directory(const char *name) {
+  char directory[128] = {0};
+  int i = 0;
+  int pos;
+  int total_slashes = 0;
+  bool found = false;
+  for (pos = 0; User.working_directory[pos] != '\0'; pos++) {
+    directory[i] = User.working_directory[pos];
+    i++;
+    if (User.working_directory[pos + 1] == '/') {
+      directory[i] = '\0';
+      total_slashes++;
+      if (strcmp(directory, name) == 0) {
+        found = true;
+        break;
+      }
+      i = 0;
+    }
+  }
+  if (found) {
+    int slashes = 0;
+    for (pos = 0; User.working_directory[pos] != '\0'; pos++) {
+      directory[pos] = User.working_directory[pos];
+      if (User.working_directory[pos + 1] == '/') {
+        slashes++;
+        if (slashes == total_slashes) {
+          break;
+        }
+      }
+    }
+    directory[pos++] = '\0';
+    for (pos = 0; directory[pos] != '\0'; pos++) {
+      User.working_directory[pos] = directory[pos];
+    }
+    User.working_directory[pos++] = '\0';
+  } else {
+    for (pos = 0; User.working_directory[pos] != '\0'; pos++);
+    for (i = 0; name[i] != '\0'; i++) {
+      User.working_directory[pos + i] = name[i];
+    }
+    User.working_directory[pos + i] = '\0';
+  }
 }
 
 void setup_menu() {
   xSemaphoreTake(sd_mutex, portMAX_DELAY);
-  SD.open()
+  //SD.open()
   xSemaphoreGive(sd_mutex);
 
 }
@@ -479,6 +542,9 @@ void update_config(const char *entry) {
     i++;
   }
   value[j] = '\0';
+  //compare name
+  //statically match names to config entries
+  //assign value
 }
 
 void setup() {
