@@ -7,6 +7,13 @@
 #include "AudioTools.h"
 
 /*
+Configuration
+*/
+
+#define ROOT "/"
+#define CONFIG "/settings.conf"
+
+/*
 Sleep intervals
 */
 #define SLEEP_INT 60000UL    //ms until screen blanks
@@ -69,10 +76,15 @@ alignas(4) static uint8_t audio_buffer[4096];
 alignas(4) static uint8_t mono_buffer[2048];
 
 /*
-Location and song tracking
+User
 */
-char working_directory[1024];
-char playing[128] = {0};
+
+struct ConfigInfo {
+  char working_directory[1024];
+  char playing[128] = {0};
+  int brightness = 2;
+};
+
 
 /*
 Hardware setup for audio
@@ -83,7 +95,6 @@ AudioInfo info(44100, 2, 16);
 /*
 Misc
 */
-int current_brightness = 2;
 uint8_t brightness_value = 0x7F;
 
 
@@ -117,7 +128,7 @@ struct SongInfo {
 };
 
 struct SongInfo Song;
-
+struct ConfigInfo User;
 void print(const char *text, int x = 0, int y = 0, int clr = 0) {
   if (clr) display.clearDisplay();
   display.setCursor(x * CHAR_W, y * CHAR_H);
@@ -198,7 +209,7 @@ void audio_task(void *) {
   }
 }
 
-void end_audio() [
+void end_audio() {
   Song.active = false;
   Song.paused = false;
   unsigned long t = millis();
@@ -276,6 +287,7 @@ bool open_audio(const char *path) {
 
   if (!found) {
       return false;
+  }
   Song.audio_channels = 
       (uint32_t)format[2]
     | ((uint32_t)format[3] << 8);
@@ -292,10 +304,10 @@ bool open_audio(const char *path) {
   while (Song.file.position() + 8 <= Song.file.size()) {
     bytes_read = Song.file.read(data, 8);
     if (bytes_read != 8) {
-      return;
+      return false;
     }
     
-    chunk_size = 
+    uint32_t chunk_size = 
     (uint32_t)data[4]
     | ((uint32_t)data[5] << 8)
     | ((uint32_t)data[6] << 16)
@@ -307,7 +319,7 @@ bool open_audio(const char *path) {
       Song.start_position = Song.file.position();
       break;
     }
-    skip_size = chunk_size;
+    uint32_t skip_size = chunk_size;
     if (skip_size % 2 != 0) {
       skip_size++;
     }
@@ -321,10 +333,10 @@ bool open_audio(const char *path) {
 }
 
 bool play(const char *path) {
-  stop_song();
+  end_audio();
   xSemaphoreTake(sd_mutex, portMAX_DELAY);
   if (!open_audio(path)) {
-    //handle error
+    return false;
   }
   xSemaphoreGive(sd_mutex);
   Song.paused = false;
@@ -359,6 +371,116 @@ int get_input() {
   return 0;
 }
 
+void exec(const char *name) {
+  File file = SD.open(name);
+  if (file.isDirectory()) {
+    update_working_directory(name);
+  } else {
+    //execute
+  }
+  return;
+}
+
+/*
+Power
+*/
+
+void poweroff() {
+  end_audio();
+  display.clearDisplay();
+  display.display();
+  esp_deep_sleep_enable_gpio_wakeup(BIT(WAKE), ESP_GPIO_WAKEUP_GPIO_HIGH);
+  esp_deep_sleep_start();
+}
+
+
+void sleepy(int full_sleep) {
+  start_dsleep = millis();
+  display.ssd1306_command(SSD1306_DISPLAYOFF);
+  while (true) {
+    if (get_input()) {
+      break;
+    }
+    if (full_sleep && !Song.active && millis() - start_dsleep >= DSLEEP_INT) {
+      poweroff();
+    }
+    delay(50);
+  }
+  display.ssd1306_command(SSD1306_DISPLAYON);
+  delay(250);
+  start_sleep = millis();
+  if (full_sleep) {
+    //draw menu here
+  }
+}
+
+
+/*
+Setup
+*/
+//file.isDirectory();
+//file.mkdir();
+void update_working_directory() {
+  directory[1024];
+  //when going forward count until the last slash position and append, when going backwards note all / positions and go back 1 and terminate
+}
+
+void setup_menu() {
+  xSemaphoreTake(sd_mutex, portMAX_DELAY);
+  SD.open()
+  xSemaphoreGive(sd_mutex);
+
+}
+
+void write_config() {
+  xSemaphoreTake(sd_mutex, portMAX_DELAY);
+  File config_file = SD.open(CONFIG, "w");
+  char value_to_write[1024];
+  sprintf(value_to_write, "Brightness: %d\n", User.brightness);
+  config_file.println(value_to_write);
+  config_file.close();
+  xSemaphoreGive(sd_mutex);
+}
+
+bool read_config() {
+  xSemaphoreTake(sd_mutex, portMAX_DELAY);
+  File config_file = SD.open(CONFIG);
+
+  if (!config_file) {
+    return false;
+  }
+
+  char line[128];
+
+  while (config_file.available()) {
+    int len = config_file.readBytesUntil('\n', line, sizeof(line) - 1);
+    line[len] = '\0';
+    update_config(line);
+  }
+
+  config_file.close();
+  xSemaphoreGive(sd_mutex);
+  return true;
+}
+
+void update_config(const char *entry) {
+  char name[128];
+  char value[128];
+  int i = 0;
+  for (i; entry[i] != ':'; i++) {
+    name[i] = entry[i];
+  }
+  name[i++] = '\0';
+  i++;
+  int j = 0;
+  while (entry[i] != '\0') {
+    value[j] = entry[i];
+    j++;
+    i++;
+  }
+  value[j] = '\0';
+}
+
 void setup() {
   Serial.begin(115200);
   analogReadResolution(ANALOG_RESOLUTION);
@@ -384,27 +506,32 @@ void setup() {
   Wire.setClock(400000);
 
   display.ssd1306_command(SSD1306_SETCONTRAST);
-  display.ssd1306_command(brightness_value);
+  display.ssd1306_command(User.brightness);
 
   delay(100);
-
+  display.clearDisplay();
+  print("testing");
+  display.display();
   spi.begin(SCK, MISO, MOSI, CS);
 
   if (!SD.begin(CS, spi, SD_SPI_HZ)) {
     //strlcpy(menu[5], "Remount Card");
     if (SD.cardType() == CARD_NONE) {
-      print("No SD card attached", 0, 0, 1);
+      //print("No SD card attached", 0, 0, 1);
       display.display();
       delay(2000);
     } else {
-      print("SD card mount fail", 0, 0, 1);
+      //print("SD card mount fail", 0, 0, 1);
       //handle error
     }
   } else {
     display.clearDisplay();
     // get current directories for navigation
   }
-
+  if (!read_config()) {
+    write_config();
+    read_config();
+  }
   sd_mutex = xSemaphoreCreateMutex();
   xTaskCreate(audio_task, "audio", 6144, nullptr, 5, nullptr);
   
@@ -418,10 +545,29 @@ void setup() {
 void loop() {
   if (millis() - start >= 100) {
     start = millis();
-    exec(get_input());
+    char val[3];
+    sprintf(val, "%d", get_input());
+    display.clearDisplay();
+    print(val);
+    display.display();
+    exec("");
   }
   if (millis() - start_sleep >= SLEEP_INT) {
     sleepy(1);
   }
 }
 
+/*struct Execute Funcs[] = {
+  {"Current Song", check_song},
+  {"Play Random", play_random},
+  {"Song Selection", select_songs},
+  {"Settings", settings},
+  {"Remount Card", remount},
+  {"Unmount Card", umount},
+  {"Poweroff", poweroff},
+  {"Brightness", set_brightness},
+  {"Sleep Interval", set_sleep},
+  {"Check Battery", battery_info},
+  {"Create Folders", format},
+  {"Diagnostics", diag}
+};*/
