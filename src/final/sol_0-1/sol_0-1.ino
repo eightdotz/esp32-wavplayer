@@ -422,7 +422,9 @@ Setup
 //file.mkdir();
 
 void add_entry(const char *name) {
-  return;
+  int line;
+  for (line = 0; menu[line] || menu[line][0] != '\0'; line++);
+  strcpy(menu[line], name);
 }
 
 void list_directory() {
@@ -435,7 +437,7 @@ void list_directory() {
   File file = directory.openNextFile();
   while (file) {
     char name[128];
-    strlcpy(name, file.name(), sizeof(name));
+    strcpy(name, file.name());
     file.close();
     add_entry(name);
     file = directory.openNextFile();
