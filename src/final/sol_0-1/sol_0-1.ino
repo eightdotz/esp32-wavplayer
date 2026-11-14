@@ -76,6 +76,7 @@ Maximum amount of songs and their character length to be loaded at once
 #define LIST_HEIGHT 512
 #define LIST_LENGTH 128
 char menu[LIST_HEIGHT][LIST_LENGTH] = {0};
+char on_screen_menu[SCREEN_HEIGHT / CHAR_H][LIST_LENGTH] = {0};
 /*
 Audio buffer declaration for mono and stereo
 */
@@ -138,6 +139,7 @@ void print(const char *text, int x = 0, int y = 0, int clr = 0) {
   if (clr) display.clearDisplay();
   display.setCursor(x * CHAR_W, y * CHAR_H);
   display.println(text);
+  display.display();
 }
 
 /*
@@ -377,12 +379,15 @@ int get_input() {
 }
 
 void exec(const char *name) {
-  File file = SD.open(name);
+  xSemaphoreTake(sd_mutex, portMAX_DELAY);
+  File file = SD.open(name);//make a complete file path
   if (file.isDirectory()) {
     update_working_directory(name);
   } else {
     //execute
   }
+  file.close();
+  xSemaphoreGive(sd_mutex);
   return;
 }
 
@@ -428,9 +433,8 @@ Setup
 
 void add_entry(const char *name) {
   int line;
-  for (line = 0; menu[line] || menu[line][0] != '\0'; line++);
+  for (line = 0; menu[line][0] != '\0'; line++);
   strcpy(menu[line], name);
-  int menu_size = line;
 }
 
 void list_directory() {
@@ -439,6 +443,10 @@ void list_directory() {
   File directory = SD.open(User.working_directory);
   if (!directory.isDirectory()) {
     //wont open non-directory / files without extension
+    if (directory) {
+      directory.close();
+    }
+    xSemaphoreGive(sd_mutex);
     return;
   }
   File file = directory.openNextFile();
@@ -459,7 +467,7 @@ void update_working_directory(const char *name) {
   int pos;
   int total_slashes = 0;
   bool found = false;
-  if (!name) {
+  if (name == nullptr || name[0] == '\0') {
     strcpy(User.working_directory, ROOT);
     return;
   }
@@ -550,10 +558,19 @@ void update_config(const char *entry) {
 }
 
 void display_menu() {
+  display.clearDisplay();
+  menu_size = 0;
   int lines = SCREEN_HEIGHT / CHAR_H;
-  for (int i = 0; i < lines || menu[i + cursor_offset] != "\0"; i++) {
-    print(menu[i + cursor_offset], 0, CHAR_H * i);
+  for (int i = 0; i <= lines && menu[i + cursor_offset][0] != '\0'; i++) {
+    strcpy(on_screen_menu[i], menu[i + cursor_offset]);
   }
+  for (int i = 0; i < lines; i++) {
+    Serial.printf("%d. %s\n", i ,on_screen_menu[i]);
+    display.setCursor(2 * CHAR_W, i *  CHAR_H);
+    display.print(on_screen_menu[i]);
+    menu_size++;
+  }
+  display.display();
 }
 
 void navigate(int input) {
@@ -564,17 +581,39 @@ void navigate(int input) {
   if (input == 1) {
     if (cursor_position < menu_size) {
       cursor_position++;
+      display.setCursor(0, (cursor_position) *  CHAR_H);
+      display.print(">");
+      display.setCursor(0, (cursor_position - 1) *  CHAR_H);
+      display.print(" ");
+      display.display();
+      Serial.printf("Moving down: %d\n", cursor_position);
     }
   } else if (input == -1) {
-    if (cursor_position > -1) {
+    if (cursor_position - 1 > -1) {
       cursor_position--;
+      display.setCursor(0, (cursor_position) *  CHAR_H);
+      display.print(">");
+      display.setCursor(0, (cursor_position + 1) *  CHAR_H);
+      display.print(" ");
+      display.display();
+      Serial.printf("Moving up: %d\n", cursor_position);
+
     }
   } else if (input == 2) {
+    Serial.printf("Moving backward before: %s", User.working_directory);
     update_working_directory("");
+    Serial.printf("Moving backward after: %s", User.working_directory);
+
+    list_directory();
+    display_menu();
   } else if (input == 3) {
+    Serial.printf("Moving forward before: %s", User.working_directory);
     update_working_directory(menu[cursor_position]);
+    Serial.printf("Moving forward after: %s", User.working_directory);
+    list_directory();
+    display_menu();
   }
-  display_menu();
+  //display_menu();
 }
 
 void setup() {
@@ -605,9 +644,6 @@ void setup() {
   display.ssd1306_command(User.brightness);
 
   delay(100);
-  display.clearDisplay();
-  print("testing");
-  display.display();
   spi.begin(SCK, MISO, MOSI, CS);
 
   if (!SD.begin(CS, spi, SD_SPI_HZ)) {
@@ -624,16 +660,19 @@ void setup() {
     display.clearDisplay();
     // get current directories for navigation
   }
+
+  sd_mutex = xSemaphoreCreateMutex();
+  xTaskCreate(audio_task, "audio", 6144, nullptr, 5, nullptr);
+
   if (!read_config()) {
     write_config();
     read_config();
   }
-  sd_mutex = xSemaphoreCreateMutex();
-  xTaskCreate(audio_task, "audio", 6144, nullptr, 5, nullptr);
-  
+
   start_sleep = millis();
   start_dsleep = millis();
   start = millis();
+  update_working_directory("");
   list_directory();
   display_menu();
 
@@ -645,6 +684,7 @@ void loop() {
     int inp = get_input();
     char val[3];
     sprintf(val, "%d", inp);
+    navigate(inp);
   }
   if (millis() - start_sleep >= SLEEP_INT) {
     sleepy(1);
