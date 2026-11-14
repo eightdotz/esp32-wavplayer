@@ -7,6 +7,13 @@
 #include "AudioTools.h"
 
 /*
+Menu tracking
+*/
+
+int cursor_position = 0;
+int cursor_offset = 0;
+int menu_size = 0;
+/*
 Configuration
 */
 
@@ -96,15 +103,12 @@ AudioInfo info(44100, 2, 16);
 Misc
 */
 uint8_t brightness_value = 0x7F;
-
-
 SPIClass spi = SPIClass(FSPI);
 
 struct Execute { //struct to relate names to executables
   const char *name;
   void (*call)(void);
 };
-
 
 /*
 Audio Tracking
@@ -129,6 +133,7 @@ struct SongInfo {
 
 struct SongInfo Song;
 struct ConfigInfo User;
+
 void print(const char *text, int x = 0, int y = 0, int clr = 0) {
   if (clr) display.clearDisplay();
   display.setCursor(x * CHAR_W, y * CHAR_H);
@@ -425,9 +430,11 @@ void add_entry(const char *name) {
   int line;
   for (line = 0; menu[line] || menu[line][0] != '\0'; line++);
   strcpy(menu[line], name);
+  int menu_size = line;
 }
 
 void list_directory() {
+  memset(menu, 0, sizeof(menu));
   xSemaphoreTake(sd_mutex, portMAX_DELAY);
   File directory = SD.open(User.working_directory);
   if (!directory.isDirectory()) {
@@ -452,20 +459,20 @@ void update_working_directory(const char *name) {
   int pos;
   int total_slashes = 0;
   bool found = false;
+  if (!name) {
+    strcpy(User.working_directory, ROOT);
+    return;
+  }
   for (pos = 0; User.working_directory[pos] != '\0'; pos++) {
-    directory[i] = User.working_directory[pos];
-    i++;
     if (User.working_directory[pos + 1] == '/') {
-      directory[i] = '\0';
       total_slashes++;
-      if (strcmp(directory, name) == 0) {
-        found = true;
-        break;
-      }
-      i = 0;
     }
   }
-  if (found) {
+  if (!total_slashes) {
+    strcpy(User.working_directory, ROOT);
+    return;
+  }
+  if (!name) {
     int slashes = 0;
     for (pos = 0; User.working_directory[pos] != '\0'; pos++) {
       directory[pos] = User.working_directory[pos];
@@ -488,13 +495,6 @@ void update_working_directory(const char *name) {
     }
     User.working_directory[pos + i] = '\0';
   }
-}
-
-void setup_menu() {
-  xSemaphoreTake(sd_mutex, portMAX_DELAY);
-  //SD.open()
-  xSemaphoreGive(sd_mutex);
-
 }
 
 void write_config() {
@@ -547,6 +547,34 @@ void update_config(const char *entry) {
   //compare name
   //statically match names to config entries
   //assign value
+}
+
+void display_menu() {
+  int lines = SCREEN_HEIGHT / CHAR_H;
+  for (int i = 0; i < lines || menu[i + cursor_offset] != "\0"; i++) {
+    print(menu[i + cursor_offset], 0, CHAR_H * i);
+  }
+}
+
+void navigate(int input) {
+  //up 1, down -1, enter 3, back 2
+  if (!input) {
+    return;
+  }
+  if (input == 1) {
+    if (cursor_position < menu_size) {
+      cursor_position++;
+    }
+  } else if (input == -1) {
+    if (cursor_position > -1) {
+      cursor_position--;
+    }
+  } else if (input == 2) {
+    update_working_directory("");
+  } else if (input == 3) {
+    update_working_directory(menu[cursor_position]);
+  }
+  display_menu();
 }
 
 void setup() {
@@ -606,19 +634,17 @@ void setup() {
   start_sleep = millis();
   start_dsleep = millis();
   start = millis();
-  //display current directory
+  list_directory();
+  display_menu();
 
 }
 
 void loop() {
   if (millis() - start >= 100) {
     start = millis();
+    int inp = get_input();
     char val[3];
-    sprintf(val, "%d", get_input());
-    display.clearDisplay();
-    print(val);
-    display.display();
-    exec("");
+    sprintf(val, "%d", inp);
   }
   if (millis() - start_sleep >= SLEEP_INT) {
     sleepy(1);
