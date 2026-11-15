@@ -424,12 +424,30 @@ void sleepy(int full_sleep) {
   }
 }
 
+/*
+Display
+*/
+
+void display_menu() {
+  display.clearDisplay();
+  menu_size = 0;
+  int lines = SCREEN_HEIGHT / CHAR_H;
+  for (int i = 0; i <= lines && menu[i + cursor_offset][0] != '\0'; i++) {
+    strcpy(on_screen_menu[i], menu[i + cursor_offset]);
+  }
+  for (int i = 0; i < lines; i++) {
+    Serial.printf("%d. %s\n", i ,on_screen_menu[i]);
+    display.setCursor(2 * CHAR_W, i *  CHAR_H);
+    display.print(on_screen_menu[i]);
+    menu_size++;
+  }
+  display.display();
+}
+
 
 /*
-Setup
+Filesystem
 */
-//file.isDirectory();
-//file.mkdir();
 
 void add_entry(const char *name) {
   int line;
@@ -462,12 +480,14 @@ void list_directory() {
 }
 
 void update_working_directory(const char *name) {
+  Serial.printf("Updating working directory with %s\n", name);
   char directory[128] = {0};
   int i = 0;
   int pos;
   int total_slashes = 0;
   bool found = false;
   if (name == nullptr || name[0] == '\0') {
+    Serial.printf("Name empty, moving to root\n");
     strcpy(User.working_directory, ROOT);
     return;
   }
@@ -477,6 +497,7 @@ void update_working_directory(const char *name) {
     }
   }
   if (!total_slashes) {
+    Serial.printf("No slashes found, assuming root\n");
     strcpy(User.working_directory, ROOT);
     return;
   }
@@ -504,6 +525,50 @@ void update_working_directory(const char *name) {
     User.working_directory[pos + i] = '\0';
   }
 }
+
+void make_folder(const char *path, const char *label) {
+  display.clearDisplay();
+  if (SD.mkdir(path)) {
+    print("Created:", 0, 0, 0);
+  } else {
+    print("Failed to make:", 0, 0, 0);
+  }
+  print(label, 0, 1, 0);
+  display.display();
+  delay(200);
+}
+
+
+/*
+Actions
+*/
+
+void reset_menu() {
+  print("Resetting menu", 0, 0, 1);
+  print("please make sure you", 0, 1, 0);
+  print("have formatted this", 0, 2, 0);
+  print("card in FAT32", 0, 3, 0);
+  print("Otherwise, poweroff", 0, 4, 0);
+  print("Press to cont.", 0, 6, 0);
+  display.display();
+  delay(200);
+  wait();
+  static const char *names[] = {
+    "Play", "Settings"
+  };
+  char path[40];
+  xSemaphoreTake(sd_mutex, portMAX_DELAY);
+  for (size_t i = 0; i < sizeof(names) / sizeof(names[0]); i++) {
+    snprintf(path, sizeof(path), "/%s", names[i]);
+    make_folder(path, names[i]);
+ }
+  xSemaphoreGive(sd_mutex);
+}
+
+
+/*
+Utility
+*/
 
 void write_config() {
   xSemaphoreTake(sd_mutex, portMAX_DELAY);
@@ -557,59 +622,43 @@ void update_config(const char *entry) {
   //assign value
 }
 
-void display_menu() {
-  display.clearDisplay();
-  menu_size = 0;
-  int lines = SCREEN_HEIGHT / CHAR_H;
-  for (int i = 0; i <= lines && menu[i + cursor_offset][0] != '\0'; i++) {
-    strcpy(on_screen_menu[i], menu[i + cursor_offset]);
-  }
-  for (int i = 0; i < lines; i++) {
-    Serial.printf("%d. %s\n", i ,on_screen_menu[i]);
-    display.setCursor(2 * CHAR_W, i *  CHAR_H);
-    display.print(on_screen_menu[i]);
-    menu_size++;
-  }
-  display.display();
-}
-
 void navigate(int input) {
   //up 1, down -1, enter 3, back 2
   if (!input) {
     return;
   }
-  if (input == 1) {
+  display.setCursor(0, cursor_position *  CHAR_H);
+  display.setTextColor(0);
+  display.print(">");
+  display.setTextColor(1);
+  if (input == -1) {
     if (cursor_position < menu_size) {
       cursor_position++;
-      display.setCursor(0, (cursor_position) *  CHAR_H);
+      display.setCursor(0, cursor_position *  CHAR_H);
       display.print(">");
-      display.setCursor(0, (cursor_position - 1) *  CHAR_H);
-      display.print(" ");
       display.display();
       Serial.printf("Moving down: %d\n", cursor_position);
     }
-  } else if (input == -1) {
+  } else if (input == 1) {
     if (cursor_position - 1 > -1) {
       cursor_position--;
-      display.setCursor(0, (cursor_position) *  CHAR_H);
+      display.setCursor(0, cursor_position *  CHAR_H);
       display.print(">");
-      display.setCursor(0, (cursor_position + 1) *  CHAR_H);
-      display.print(" ");
       display.display();
       Serial.printf("Moving up: %d\n", cursor_position);
 
     }
   } else if (input == 2) {
-    Serial.printf("Moving backward before: %s", User.working_directory);
+    Serial.printf("Moving backward before: %s\n", User.working_directory);
     update_working_directory("");
-    Serial.printf("Moving backward after: %s", User.working_directory);
+    Serial.printf("Moving backward after: %s\n", User.working_directory);
 
     list_directory();
     display_menu();
   } else if (input == 3) {
-    Serial.printf("Moving forward before: %s", User.working_directory);
+    Serial.printf("Moving forward before: %s\n", User.working_directory);
     update_working_directory(menu[cursor_position]);
-    Serial.printf("Moving forward after: %s", User.working_directory);
+    Serial.printf("Moving forward after: %s\n", User.working_directory);
     list_directory();
     display_menu();
   }
@@ -668,6 +717,20 @@ void setup() {
     write_config();
     read_config();
   }
+  static const char *names[] = {
+    "Z", "I", "N"
+  };
+  display.clearDisplay();
+  for (size_t i = 0; i < sizeof(names) / sizeof(names[0]); i++) {
+    display.setCursor( (SCREEN_WIDTH / 2) + (i * CHAR_W), SCREEN_HEIGHT / 2);
+    display.print(names[i]);
+    delay(400);
+    display.display();
+ }
+  display.setCursor( (SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) + CHAR_H);
+  display.print("OS");
+  display.display();
+  delay(600);
 
   start_sleep = millis();
   start_dsleep = millis();
