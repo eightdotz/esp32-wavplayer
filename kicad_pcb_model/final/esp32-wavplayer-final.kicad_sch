@@ -7251,6 +7251,16 @@
 		)
 		(uuid "e1d15d39-e40f-4f1a-b4d5-f75cd110729a")
 	)
+	(text "Swap to TLV61220DBVR-TP"
+		(exclude_from_sim no)
+		(at 218.948 66.802 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "f7c0a16f-0d51-4fcf-b176-1cc6b4dc5b9f")
+	)
 	(junction
 		(at 204.47 62.23)
 		(diameter 0)
