@@ -429,6 +429,7 @@ Display
 */
 
 void display_menu() {
+  memset(on_screen_menu, 0, sizeof(on_screen_menu));
   display.clearDisplay();
   menu_size = 0;
   int lines = SCREEN_HEIGHT / CHAR_H;
@@ -452,6 +453,7 @@ Filesystem
 void add_entry(const char *name) {
   int line;
   for (line = 0; menu[line][0] != '\0'; line++);
+  Serial.printf("Adding entry: %s\n", name);
   strcpy(menu[line], name);
 }
 
@@ -459,12 +461,17 @@ void list_directory() {
   memset(menu, 0, sizeof(menu));
   xSemaphoreTake(sd_mutex, portMAX_DELAY);
   File directory = SD.open(User.working_directory);
+  Serial.printf("Listing %s\n", User.working_directory);
   if (!directory.isDirectory()) {
     //wont open non-directory / files without extension
     if (directory) {
+      Serial.printf("Not a directory, movement DENIED!\n");
       directory.close();
     }
+    Serial.printf("File object does not exist and is not a directory\n");
     xSemaphoreGive(sd_mutex);
+    update_working_directory("");
+    list_directory();
     return;
   }
   File file = directory.openNextFile();
@@ -476,6 +483,15 @@ void list_directory() {
     file = directory.openNextFile();
   }
   directory.close();
+  if (menu[0][0] == '\0') {
+    Serial.printf("Menu not populated\n");
+    print("Directory is empty", 0, 0, 1);
+    wait();
+    xSemaphoreGive(sd_mutex);
+    update_working_directory("");
+    list_directory();
+    return;
+  }
   xSemaphoreGive(sd_mutex);
 }
 
@@ -486,39 +502,47 @@ void update_working_directory(const char *name) {
   int pos;
   int total_slashes = 0;
   bool found = false;
-  if (name == nullptr || name[0] == '\0') {
-    Serial.printf("Name empty, moving to root\n");
-    strcpy(User.working_directory, ROOT);
-    return;
-  }
   for (pos = 0; User.working_directory[pos] != '\0'; pos++) {
-    if (User.working_directory[pos + 1] == '/') {
+    if (User.working_directory[pos] == '/') {
       total_slashes++;
     }
   }
-  if (!total_slashes) {
+  Serial.printf("Total slashes: %d\n", total_slashes);
+  if (!total_slashes && User.working_directory[0] != '/') {
     Serial.printf("No slashes found, assuming root\n");
     strcpy(User.working_directory, ROOT);
     return;
   }
-  if (!name) {
+  if (!name[0]) {
     int slashes = 0;
     for (pos = 0; User.working_directory[pos] != '\0'; pos++) {
       directory[pos] = User.working_directory[pos];
-      if (User.working_directory[pos + 1] == '/') {
+      Serial.printf("BACKWARDS: %c\n", directory[pos]);
+      if (directory[pos] == '/') {
         slashes++;
-        if (slashes == total_slashes) {
+        Serial.printf("Found slash!\n", directory[pos]);
+        if (slashes == total_slashes - 1) {
           break;
         }
       }
     }
-    directory[pos++] = '\0';
-    for (pos = 0; directory[pos] != '\0'; pos++) {
-      User.working_directory[pos] = directory[pos];
+    Serial.printf("Counted slashes: %d\n", slashes);
+    if (pos > 1) {
+      if (User.working_directory[pos] != '/'){
+        User.working_directory[pos] = '/';
+      }
     }
-    User.working_directory[pos++] = '\0';
+    directory[pos++] = '\0';
+    strcpy(User.working_directory, directory);
   } else {
     for (pos = 0; User.working_directory[pos] != '\0'; pos++);
+    if (pos > 1) {
+      if (User.working_directory[pos] != '/'){
+        //PRINT CHAR HERE THANKS 
+        User.working_directory[pos] = '/';
+      }
+      Serial.printf("Size of directory: %d\n", pos);
+    }
     for (i = 0; name[i] != '\0'; i++) {
       User.working_directory[pos + i] = name[i];
     }
@@ -652,7 +676,6 @@ void navigate(int input) {
     Serial.printf("Moving backward before: %s\n", User.working_directory);
     update_working_directory("");
     Serial.printf("Moving backward after: %s\n", User.working_directory);
-
     list_directory();
     display_menu();
   } else if (input == 3) {
@@ -728,6 +751,7 @@ void setup() {
     display.display();
  }
   display.setCursor( (SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) + CHAR_H);
+  delay(200);
   display.print("OS");
   display.display();
   delay(600);
