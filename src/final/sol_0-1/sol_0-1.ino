@@ -736,22 +736,29 @@ void setup() {
     write_config();
     read_config();
   }
-  static const char *names[] = {
-    "Z", "I", "N"
+  static const char names[] = {
+    'Z', 'I', 'N', '\0'
   };
   display.clearDisplay();
+  int len;
+  for (len = 0; names[len] != '\0'; len++);
   for (size_t i = 0; i < sizeof(names) / sizeof(names[0]); i++) {
-    display.setCursor( (SCREEN_WIDTH / 2) + (i * CHAR_W), SCREEN_HEIGHT / 2);
+    display.setCursor(((SCREEN_WIDTH / 2) - (len * 2)) + (i * CHAR_W), (SCREEN_HEIGHT / 3) - CHAR_H);
     display.print(names[i]);
     delay(400);
     display.display();
  }
-  display.setCursor( (SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) + CHAR_H);
+  display.setCursor( (SCREEN_WIDTH / 2) - (len * 2), (SCREEN_HEIGHT / 3));
   delay(200);
   display.print("OS");
   display.display();
-  delay(600);
 
+  delay(100);
+  for (int i = 0; i < SCREEN_WIDTH; i = i + 2){ 
+    delay(1);
+    display.fillRect(0, SCREEN_HEIGHT / 2, i, 4, WHITE);
+    display.display();
+  }
   start_sleep = millis();
   start_dsleep = millis();
   start = millis();
