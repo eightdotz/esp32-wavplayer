@@ -47,7 +47,7 @@ Analog read values for input. Sensitivity is +- current value
 #define WAKE GPIO_NUM_0
 #define BUTTONS 0 //analog 0
 #define SENSITIVITY 100
-
+#define BUTTON_TIME 150
 /*
 Pin assignments for SDCard connection and setup
 Semaphore is used for SD usage during song playing
@@ -513,7 +513,7 @@ void update_working_directory(const char *name) {
     strcpy(User.working_directory, ROOT);
     return;
   }
-  if (!name[0]) {
+  if (name[0] == '\0') {
     int slashes = 0;
     for (pos = 0; User.working_directory[pos] != '\0'; pos++) {
       directory[pos] = User.working_directory[pos];
@@ -535,18 +535,14 @@ void update_working_directory(const char *name) {
     directory[pos++] = '\0';
     strcpy(User.working_directory, directory);
   } else {
+    Serial.printf("Extending working directory\n");
     for (pos = 0; User.working_directory[pos] != '\0'; pos++);
-    if (pos > 1) {
-      if (User.working_directory[pos] != '/'){
-        //PRINT CHAR HERE THANKS 
-        User.working_directory[pos] = '/';
-      }
-      Serial.printf("Size of directory: %d\n", pos);
-    }
     for (i = 0; name[i] != '\0'; i++) {
       User.working_directory[pos + i] = name[i];
     }
-    User.working_directory[pos + i] = '\0';
+    User.working_directory[pos + i] = '/';
+
+    User.working_directory[pos + i + 1] = '\0';
   }
 }
 
@@ -766,7 +762,7 @@ void setup() {
 }
 
 void loop() {
-  if (millis() - start >= 100) {
+  if (millis() - start >= BUTTON_TIME) {
     start = millis();
     int inp = get_input();
     char val[3];
