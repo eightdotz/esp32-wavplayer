@@ -135,6 +135,8 @@ struct SongInfo {
 struct SongInfo Song;
 struct ConfigInfo User;
 
+
+
 void print(const char *text, int x = 0, int y = 0, int clr = 0) {
   if (clr) display.clearDisplay();
   display.setCursor(x * CHAR_W, y * CHAR_H);
@@ -508,11 +510,11 @@ void update_working_directory(const char *name) {
     }
   }
   Serial.printf("Total slashes: %d\n", total_slashes);
-  if (!total_slashes && User.working_directory[0] != '/') {
+  /*if (!total_slashes && User.working_directory[0] != '/') {
     Serial.printf("No slashes found, assuming root\n");
     strcpy(User.working_directory, ROOT);
     return;
-  }
+  }*/
   if (name[0] == '\0') {
     int slashes = 0;
     for (pos = 0; User.working_directory[pos] != '\0'; pos++) {
@@ -537,17 +539,21 @@ void update_working_directory(const char *name) {
   } else {
     Serial.printf("Extending working directory\n");
     for (pos = 0; User.working_directory[pos] != '\0'; pos++);
+    if (pos > 1){
+      User.working_directory[pos] = '/';
+      pos++;
+    }
+    
     for (i = 0; name[i] != '\0'; i++) {
       User.working_directory[pos + i] = name[i];
     }
-    User.working_directory[pos + i] = '/';
-
     User.working_directory[pos + i + 1] = '\0';
   }
 }
 
 void make_folder(const char *path, const char *label) {
   display.clearDisplay();
+  Serial.printf("Making dir at %s\n", path);
   if (SD.mkdir(path)) {
     print("Created:", 0, 0, 0);
   } else {
@@ -558,12 +564,53 @@ void make_folder(const char *path, const char *label) {
   delay(200);
 }
 
+void touch(const char *path, const char *label) {
+  display.clearDisplay();
+  Serial.printf("Making file at %s\n", path);
+  File file = SD.open(path, "w");
+  if (!file) {
+    print("Failed creating:", 0, 0, 1);
+    print(label, 0, 1, 0);
+  }
+  file.close();
+  print("Created:", 0, 0, 1);
+  print(label, 0, 1, 0);
+  display.display();
+  delay(200);
+}
+
 
 /*
 Actions
 */
 
+void verify_menu(){
+  xSemaphoreTake(sd_mutex, portMAX_DELAY);
+  File directory = SD.open("/");
+  Serial.printf("Checking /\n");
+  File file = directory.openNextFile();
+  int verified = 0;
+  while (file) {
+   if (strcmp("Play", file.name()) == 0 || strcmp("Settings", file.name()) == 0) {
+      verified = 1;
+    }
+    file = directory.openNextFile();
+  }
+  directory.close();
+  xSemaphoreGive(sd_mutex);
+  if (!verified) {
+    Serial.printf("Did not find menu entries\n");
+    print("Cannot find", 0, 0, 1);
+    print("Menu entries", 0, 1, 0);
+    print("Resetting...", 0, 2, 0);
+    display.display();
+    delay(500);
+    reset_menu();
+  }
+}
+
 void reset_menu() {
+  Serial.printf("Resetting menus\n");
   print("Resetting menu", 0, 0, 1);
   print("please make sure you", 0, 1, 0);
   print("have formatted this", 0, 2, 0);
@@ -573,16 +620,28 @@ void reset_menu() {
   display.display();
   delay(200);
   wait();
-  static const char *names[] = {
-    "Play", "Settings"
+  static const char *dirs[] = {
+    "/Play", "/Settings", "/Play/Library"
   };
-  char path[40];
+  char path[2048];
   xSemaphoreTake(sd_mutex, portMAX_DELAY);
-  for (size_t i = 0; i < sizeof(names) / sizeof(names[0]); i++) {
-    snprintf(path, sizeof(path), "/%s", names[i]);
-    make_folder(path, names[i]);
+  for (size_t i = 0; i < sizeof(dirs) / sizeof(dirs[0]); i++) {
+    snprintf(path, sizeof(path), "%s", dirs[i]);
+    make_folder(path, dirs[i]);
  }
   xSemaphoreGive(sd_mutex);
+
+   static const char *files[] = {
+    "/Play/Shuffle", "/Settings/Reset Menu"
+  };
+  memset(path, 0, sizeof(path));
+  xSemaphoreTake(sd_mutex, portMAX_DELAY);
+  for (size_t i = 0; i < sizeof(files) / sizeof(files[0]); i++) {
+    snprintf(path, sizeof(path), "%s", files[i]);
+    touch(path, files[i]);
+ }
+  xSemaphoreGive(sd_mutex);
+
 }
 
 
@@ -759,6 +818,7 @@ void setup() {
     display.fillRect(0, SCREEN_HEIGHT / 2, i, 4, WHITE);
     display.display();
   }
+  verify_menu();
   start_sleep = millis();
   start_dsleep = millis();
   start = millis();
