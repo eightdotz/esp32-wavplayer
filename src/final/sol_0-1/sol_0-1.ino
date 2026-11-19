@@ -754,7 +754,7 @@ void setup() {
   display.display();
 
   delay(100);
-  for (int i = 0; i < SCREEN_WIDTH; i = i + 2){ 
+  for (int i = 0; i <= SCREEN_WIDTH; i = i + 2){ 
     delay(1);
     display.fillRect(0, SCREEN_HEIGHT / 2, i, 4, WHITE);
     display.display();
